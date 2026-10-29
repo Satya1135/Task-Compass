@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-label="Backend Developer role illustration">
+  <defs>
+    <linearGradient id="be-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdfa"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="be-server" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="be-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Soft Circle -->
+  <circle cx="50" cy="50" r="44" fill="url(#be-grad)" stroke="#a5f3fc" stroke-width="1.5"/>
+
+  <!-- Server Rack Enclosure -->
+  <g filter="url(#be-shadow)">
+    <rect x="22" y="22" width="34" height="54" rx="5" fill="url(#be-server)" stroke="#334155" stroke-width="1.5"/>
+    
+    <!-- Server Shelf 1 -->
+    <rect x="26" y="27" width="26" height="10" rx="2" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+    <circle cx="30" cy="32" r="1.5" fill="#10b981"/>
+    <circle cx="35" cy="32" r="1.5" fill="#0ea5e9"/>
+    <line x1="40" y1="32" x2="48" y2="32" stroke="#475569" stroke-width="1.5"/>
+
+    <!-- Server Shelf 2 -->
+    <rect x="26" y="40" width="26" height="10" rx="2" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+    <circle cx="30" cy="45" r="1.5" fill="#0d9488"/>
+    <circle cx="35" cy="45" r="1.5" fill="#f59e0b"/>
+    <line x1="40" y1="45" x2="48" y2="45" stroke="#475569" stroke-width="1.5"/>
+
+    <!-- Server Shelf 3 -->
+    <rect x="26" y="53" width="26" height="10" rx="2" fill="#1e293b" stroke="#334155" stroke-width="0.8"/>
+    <circle cx="30" cy="58" r="1.5" fill="#10b981"/>
+    <circle cx="35" cy="58" r="1.5" fill="#0d9488"/>
+    <line x1="40" y1="58" x2="48" y2="58" stroke="#475569" stroke-width="1.5"/>
+
+    <!-- Server Shelf 4 (Bottom) -->
+    <rect x="26" y="65" width="26" height="6" rx="1.5" fill="#1e293b"/>
+    <circle cx="30" cy="68" r="1" fill="#38bdf8"/>
+    <circle cx="34" cy="68" r="1" fill="#38bdf8"/>
+    <circle cx="38" cy="68" r="1" fill="#38bdf8"/>
+  </g>
+
+  <!-- Database Cylinder Stack (Right Side) -->
+  <g filter="url(#be-shadow)">
+    <!-- Database Layer 3 (Bottom) -->
+    <ellipse cx="70" cy="66" rx="14" ry="4.5" fill="#0d9488"/>
+    <path d="M56 56 C56 61 84 61 84 56 V66 C84 71 56 71 56 66 Z" fill="#0f766e" stroke="#042f2e" stroke-width="0.8"/>
+    <ellipse cx="70" cy="56" rx="14" ry="4.5" fill="#14b8a6"/>
+
+    <!-- Database Layer 2 (Middle) -->
+    <path d="M56 46 C56 51 84 51 84 46 V56 C84 61 56 61 56 56 Z" fill="#0d9488" stroke="#042f2e" stroke-width="0.8"/>
+    <ellipse cx="70" cy="46" rx="14" ry="4.5" fill="#2dd4bf"/>
+
+    <!-- Database Layer 1 (Top) -->
+    <path d="M56 36 C56 41 84 41 84 36 V46 C84 51 56 51 56 46 Z" fill="#14b8a6" stroke="#042f2e" stroke-width="0.8"/>
+    <ellipse cx="70" cy="36" rx="14" ry="4.5" fill="#5eead4" stroke="#0f766e" stroke-width="0.8"/>
+  </g>
+
+  <!-- API Pipeline Connector -->
+  <path d="M52 45 L60 45" stroke="#0284c7" stroke-width="2" stroke-dasharray="2 1.5"/>
+  <circle cx="56" cy="45" r="2.5" fill="#0284c7"/>
+
+  <!-- REST API Endpoint Pill (Top Right) -->
+  <g transform="translate(56, 16)" filter="url(#be-shadow)">
+    <rect x="0" y="0" width="30" height="14" rx="4" fill="#0284c7" stroke="#ffffff" stroke-width="1.2"/>
+    <text x="5" y="10.5" font-family="'Outfit', sans-serif" font-size="7.5" font-weight="800" fill="#ffffff">API / DB</text>
+  </g>
+</svg>

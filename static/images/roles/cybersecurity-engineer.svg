@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-label="Cybersecurity Engineer role illustration">
+  <defs>
+    <linearGradient id="cyber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdfa"/>
+      <stop offset="100%" stop-color="#ccfbf1"/>
+    </linearGradient>
+    <linearGradient id="shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <filter id="cyber-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#0f172a" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background Soft Circle -->
+  <circle cx="50" cy="50" r="44" fill="url(#cyber-grad)" stroke="#99f6e4" stroke-width="1.5"/>
+
+  <!-- Concentric Security Perimeter Rings -->
+  <circle cx="50" cy="50" r="36" stroke="#99f6e4" stroke-width="1" stroke-dasharray="3 3"/>
+  <circle cx="50" cy="50" r="30" stroke="#5eead4" stroke-width="1" opacity="0.6"/>
+
+  <!-- Main Armored Security Shield -->
+  <g filter="url(#cyber-shadow)">
+    <!-- Shield Outer Shell -->
+    <path d="M50 20 L28 29 V50 C28 65 37 76 50 80 C63 76 72 65 72 50 V29 Z" fill="url(#shield-grad)" stroke="#ffffff" stroke-width="2"/>
+
+    <!-- Inner Shield Inset -->
+    <path d="M50 25 L33 32 V49 C33 61 40 70 50 74 C60 70 67 61 67 49 V32 Z" fill="#115e59" opacity="0.4"/>
+
+    <!-- Digital Security Padlock Core -->
+    <!-- Shackle -->
+    <path d="M43 47 V42 C43 38 46 35 50 35 C54 35 57 38 57 42 V47" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <!-- Lock Body -->
+    <rect x="40" y="47" width="20" height="16" rx="3.5" fill="#ffffff"/>
+    <!-- Keyhole -->
+    <circle cx="50" cy="53" r="2" fill="#0d9488"/>
+    <polygon points="49,53 51,53 51.5,58 48.5,58" fill="#0d9488"/>
+  </g>
+
+  <!-- Verified Security Seal Checkmark (Bottom Right) -->
+  <g transform="translate(64, 60)" filter="url(#cyber-shadow)">
+    <circle cx="11" cy="11" r="10" fill="#059669" stroke="#ffffff" stroke-width="1.8"/>
+    <path d="M7 11 L10 14 L15 8.5" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

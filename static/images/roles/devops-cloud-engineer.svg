@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-label="DevOps / Cloud Engineer role illustration">
+  <defs>
+    <linearGradient id="devops-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="cloud-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0d9488"/>
+    </linearGradient>
+    <filter id="devops-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Soft Circle -->
+  <circle cx="50" cy="50" r="44" fill="url(#devops-grad)" stroke="#bae6fd" stroke-width="1.5"/>
+
+  <!-- High-Availability Cloud Infrastructure -->
+  <g filter="url(#devops-shadow)">
+    <path d="M34 50 A12 12 0 0 1 54 36 A15 15 0 0 1 74 44 A10 10 0 0 1 76 58 H34 A8 8 0 0 1 34 50 Z" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    
+    <!-- CI/CD Infinity Loop Inside Cloud -->
+    <path d="M42 48 C42 44, 46 44, 49 48 C52 52, 56 52, 56 48 C56 44, 52 44, 49 48 C46 52, 42 52, 42 48 Z" stroke="url(#cloud-accent)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Docker / Container Infrastructure Cube -->
+  <g transform="translate(30, 56)" filter="url(#devops-shadow)">
+    <!-- Main Deployment Container Base -->
+    <rect x="0" y="4" width="40" height="20" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
+    
+    <!-- Container Grids / Slots -->
+    <rect x="4" y="8" width="7" height="5" rx="1" fill="#0ea5e9"/>
+    <rect x="13" y="8" width="7" height="5" rx="1" fill="#0ea5e9"/>
+    <rect x="22" y="8" width="7" height="5" rx="1" fill="#14b8a6"/>
+    <rect x="31" y="8" width="5" height="5" rx="1" fill="#10b981"/>
+
+    <!-- CI/CD Terminal Status -->
+    <circle cx="7" cy="18" r="1.5" fill="#10b981"/>
+    <line x1="12" y1="18" x2="34" y2="18" stroke="#64748b" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Deployment Rocket / Launch Badge Overlay (Top Right) -->
+  <g transform="translate(64, 18)" filter="url(#devops-shadow)">
+    <circle cx="12" cy="12" r="12" fill="#0284c7" stroke="#ffffff" stroke-width="1.8"/>
+    <!-- CI/CD Pipeline Sync Arrow -->
+    <path d="M7 12 A5 5 0 0 1 15 8 L17 6 M17 12 A5 5 0 0 1 9 16 L7 18" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
+    <polyline points="13 6 17 6 17 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="11 18 7 18 7 14" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

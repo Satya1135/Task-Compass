@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none" aria-label="Frontend Developer role illustration">
+  <defs>
+    <linearGradient id="fe-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="fe-screen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="fe-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Soft Circle -->
+  <circle cx="50" cy="50" r="44" fill="url(#fe-grad)" stroke="#bfdbfe" stroke-width="1.5"/>
+
+  <!-- Laptop Display -->
+  <g filter="url(#fe-shadow)">
+    <!-- Screen Bezel -->
+    <rect x="22" y="24" width="56" height="38" rx="5" fill="#334155" stroke="#475569" stroke-width="1.2"/>
+    <!-- Screen Glass -->
+    <rect x="25" y="27" width="50" height="32" rx="3" fill="url(#fe-screen)"/>
+    
+    <!-- Code Editor Header Bar -->
+    <rect x="25" y="27" width="50" height="6" rx="2" fill="#0d9488"/>
+    <circle cx="28" cy="30" r="1.2" fill="#f87171"/>
+    <circle cx="31.5" cy="30" r="1.2" fill="#fde047"/>
+    <circle cx="35" cy="30" r="1.2" fill="#4ade80"/>
+    <rect x="42" y="29" width="16" height="2" rx="1" fill="#ffffff" opacity="0.8"/>
+
+    <!-- Code Syntax Highlighting Lines inside Editor -->
+    <!-- Line 1: const App = () => { -->
+    <rect x="28" y="36" width="8" height="2" rx="0.8" fill="#f43f5e"/>
+    <rect x="38" y="36" width="12" height="2" rx="0.8" fill="#38bdf8"/>
+    <rect x="52" y="36" width="6" height="2" rx="0.8" fill="#a78bfa"/>
+
+    <!-- Line 2: return <InteractiveUI /> -->
+    <rect x="32" y="41" width="10" height="2" rx="0.8" fill="#c084fc"/>
+    <path d="M44 40.5 L42.5 42 L44 43.5" stroke="#2dd4bf" stroke-width="0.8" stroke-linecap="round"/>
+    <rect x="46" y="41" width="15" height="2" rx="0.8" fill="#2dd4bf"/>
+    <path d="M63 40.5 L64.5 42 L63 43.5" stroke="#2dd4bf" stroke-width="0.8" stroke-linecap="round"/>
+
+    <!-- Line 3: button onClick={deploy} -->
+    <rect x="34" y="46" width="12" height="2" rx="0.8" fill="#fde047"/>
+    <rect x="48" y="46" width="16" height="2" rx="0.8" fill="#94a3b8"/>
+
+    <!-- Line 4: CSS grid flexbox -->
+    <rect x="30" y="51" width="14" height="2" rx="0.8" fill="#38bdf8"/>
+    <rect x="46" y="51" width="8" height="2" rx="0.8" fill="#4ade80"/>
+  </g>
+
+  <!-- Laptop Base & Keyboard -->
+  <path d="M16 62 L84 62 L78 68 L22 68 Z" fill="#94a3b8" stroke="#64748b" stroke-width="1.2"/>
+  <rect x="42" y="63" width="16" height="2" rx="1" fill="#cbd5e1"/>
+
+  <!-- Code Bracket Tag Badge Overlay (Top Right) -->
+  <g transform="translate(64, 18)" filter="url(#fe-shadow)">
+    <rect x="0" y="0" width="22" height="18" rx="4" fill="#0d9488" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="3" y="13" font-family="monospace" font-size="9" font-weight="800" fill="#ffffff">&lt;/&gt;</text>
+  </g>
+</svg>

@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>{% block title %}Task Compass | Interactive Workplace Learning Platform{% endblock %}</title>
+    
+    <!-- Google Fonts: Outfit & Inter for Modern Professional Educational Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Design System Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stages.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div id="app">
+        <!-- Site Header Navigation -->
+        <header class="site-header">
+            <div class="container header-container">
+                <!-- Left: Compass Logo & Title -->
+                <a href="#home" class="brand-logo" id="brand-logo-btn">
+                    <div class="brand-icon-box">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                        </svg>
+                    </div>
+                    <span class="brand-title">Task <span>Compass</span></span>
+                </a>
+
+                <!-- Center: Navigation Links -->
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link active" data-nav="home" onclick="App.closeDashboardView()">Home</a></li>
+                        <li><a href="#workplaces" class="nav-link" data-nav="workplaces" onclick="App.closeDashboardView()">Workplaces</a></li>
+                        <li><a href="#learn" class="nav-link" data-nav="learn" onclick="App.closeDashboardView()">Learn</a></li>
+                        <li><a href="#simulate" class="nav-link" data-nav="simulate">Simulate</a></li>
+                        <li><a href="javascript:void(0)" class="nav-link" data-nav="dashboard" id="nav-dashboard-link" onclick="App.openDashboardView()">Dashboard</a></li>
+                        <li><a href="#how-it-works" class="nav-link" data-nav="about" onclick="App.closeDashboardView()">About</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Right: Actions, Search, Profile, CTA -->
+                <div class="header-actions">
+                    <button class="search-trigger" id="search-toggle-btn" aria-label="Search simulations" title="Quick Search">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+
+                    <!-- Dynamic Student Profile / Authentication Badge -->
+                    <div class="user-profile-badge" id="student-badge" title="Student Dashboard & Profile" onclick="App.handleAuthBadgeClick()" style="cursor: pointer;">
+                        <div class="user-avatar-circle" id="user-avatar-icon">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <span id="student-display-name">Student Learner</span>
+                        <span class="auth-status-pill" id="auth-status-pill">Guest</span>
+                    </div>
+
+                    <button class="btn btn-secondary btn-sm" id="btn-auth-action" onclick="App.handleAuthButtonClick()">
+                        Sign In
+                    </button>
+
+                    <a href="#workplaces" class="btn btn-primary btn-sm" id="btn-header-start" onclick="App.closeDashboardView()">
+                        Get Started &rarr;
+                    </a>
+
+                    <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Drawer Menu -->
+            <div class="mobile-menu-drawer" id="mobile-drawer">
+                <ul class="mobile-menu-links">
+                    <li><a href="#home" class="nav-link active" data-nav="home" onclick="App.closeDashboardView()">Home</a></li>
+                    <li><a href="#workplaces" class="nav-link" data-nav="workplaces" onclick="App.closeDashboardView()">Workplaces</a></li>
+                    <li><a href="#learn" class="nav-link" data-nav="learn" onclick="App.closeDashboardView()">Learn</a></li>
+                    <li><a href="#simulate" class="nav-link" data-nav="simulate">Simulate</a></li>
+                    <li><a href="javascript:void(0)" class="nav-link" data-nav="dashboard" onclick="App.openDashboardView(); document.getElementById('mobile-drawer').classList.remove('open');">Dashboard</a></li>
+                    <li><a href="#how-it-works" class="nav-link" data-nav="about" onclick="App.closeDashboardView()">About</a></li>
+                    <li style="margin-top: 16px; border-top: 1px solid var(--color-border-light); padding-top: 16px;">
+                        <button class="btn btn-primary" id="mobile-auth-btn" style="width: 100%; justify-content: center;" onclick="App.openAuthModal(); document.getElementById('mobile-drawer').classList.remove('open');">
+                            Sign In / Register
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- Main Body Viewport -->
+        <main id="main-viewport">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Site Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <h4>Task Compass</h4>
+                        <p>Explore. Solve. Collaborate. Grow.</p>
+                        <p style="margin-top: 8px; font-size: 0.8rem; color: #64748b;">
+                            An interactive workplace simulation platform helping students master Ownership, Delegation, Collaboration, and Workflow Thinking.
+                        </p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h5>Workplaces</h5>
+                        <ul>
+                            <li><a href="#workplaces" onclick="App.selectWorkplace('tech-company')">Tech Company</a></li>
+                            <li><a href="#workplaces" onclick="App.selectWorkplace('startup')">Startup</a></li>
+                            <li><a href="#workplaces" onclick="App.selectWorkplace('corporate-office')">Corporate Office</a></li>
+                            <li><a href="#workplaces" onclick="App.selectWorkplace('hospital-healthcare')">Hospital / Healthcare</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h5>Simulation Stages</h5>
+                        <ul>
+                            <li><a href="#simulate">Stage 1: Who Owns This?</a></li>
+                            <li><a href="#simulate">Stage 2: Task Routing</a></li>
+                            <li><a href="#simulate">Stage 3: Collaboration Challenge</a></li>
+                            <li><a href="#simulate">Results & Reflection</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h5>Platform</h5>
+                        <ul>
+                            <li><a href="#why-task-compass">Why Task Compass?</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#learn">Career Awareness</a></li>
+                            <li><a href="#home">Privacy & Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div>&copy; 2026 Task Compass Educational Platform. All rights reserved.</div>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="#home">Privacy Policy</a>
+                        <a href="#home">Terms of Service</a>
+                        <a href="#home">Accessibility</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ========================================================================
+         STUDENT AUTHENTICATION & IDENTITY MODAL
+         Supports Account Registration, Sign In, and Student Profile Stats
+         ======================================================================== -->
+    <div id="auth-modal" class="role-modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="auth-modal-title">
+        <div class="role-modal-container auth-modal-box">
+            <button class="role-modal-close" onclick="App.closeAuthModal()" aria-label="Close authentication window">&times;</button>
+            <div id="auth-modal-body">
+                <!-- Dynamically populated via App.renderAuthModal() -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================
+         SIMULATION SESSION REVIEW MODAL (STEP 16)
+         Inspects historical question-by-question responses, optimal rationales & reflection
+         ======================================================================== -->
+    <div id="session-review-modal" class="role-modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
+        <div class="role-modal-container session-review-box">
+            <button class="role-modal-close" onclick="App.closeSessionReviewModal()" aria-label="Close session review">&times;</button>
+            <div id="session-review-modal-body">
+                <!-- Dynamically populated via App.openSessionReview(sessionId) -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================================
+         VERIFIED CAREER READINESS CERTIFICATE MODAL (STEP 16)
+         Printable / downloadable official credential of workplace simulation mastery
+         ======================================================================== -->
+    <div id="certificate-modal" class="role-modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title">
+        <div class="role-modal-container certificate-modal-box">
+            <button class="role-modal-close" onclick="App.closeCertificateModal()" aria-label="Close certificate">&times;</button>
+            <div id="certificate-modal-body">
+                <!-- Dynamically populated via App.openCertificate(sessionId) -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Frontend Script Architecture (Pure Vanilla JS, Zero Node/Framework Dependencies) -->
+    <script src="{% static 'js/api.js' %}"></script>
+    <script src="{% static 'js/state.js' %}"></script>
+    <script src="{% static 'js/stages/stage1_ownership.js' %}"></script>
+    <script src="{% static 'js/stages/stage2_routing.js' %}"></script>
+    <script src="{% static 'js/stages/stage3_collaboration.js' %}"></script>
+    <script src="{% static 'js/stages/results.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
